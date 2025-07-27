@@ -1,0 +1,7 @@
+RewriteEngine On
+# Protect sensitive directories
+RewriteRule ^(config|includes)/ - [F,L]
+# Route all requests to index.php (optional, if using a front-controller pattern)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
